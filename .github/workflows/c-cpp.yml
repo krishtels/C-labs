@@ -15,5 +15,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: compile and test
       run: |
-        cd lab1
-        make 
+        for d in */ ; do
+        cd "$d"
+        make
+        cd ..
+        done
