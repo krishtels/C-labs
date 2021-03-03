@@ -14,8 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: compile and test
-      run: |
-        for d in */ ; do
-        cd "$d"
-        cd ..
-        done
+      working-directory: ./lab1
+      run: make Makefile compileMain
+        make Makefile test
