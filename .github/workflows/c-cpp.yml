@@ -17,6 +17,5 @@ jobs:
       run: |
         for d in */ ; do
         cd "$d"
-        make
         cd ..
-        doneкг
+        done
