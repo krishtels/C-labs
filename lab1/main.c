@@ -2,11 +2,15 @@
 #include <math.h>
 #include "main.h"
 
+int power(int a){
+    return a*a*a;
+}
+
 int check(int a) {
     int first = a % 10;
     int second = (a / 10) % 10;
     int third = a / 100;
-    int number = pow(first, 3) + pow(second, 3) + pow(third, 3);
+    int number = power(first) + power(second) + power(third);
     if (number == a) {
         return 1;
     } else {
