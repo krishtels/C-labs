@@ -7,7 +7,7 @@ runMain:
 	./main
 	
 test: test.c
-	gcc -o test -Dmain=_main main.c test.c -std=c89 
+	gcc -o test -Dmain=_main main.c test.c -std=c89 -lm
 	./test
 
 clean:
