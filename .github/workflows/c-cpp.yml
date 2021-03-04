@@ -14,8 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: compile and test
-      run: |
+      run: | 
         for d in */ ; do
         cd "$d"
+        make
         cd ..
         done
