@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include "main.h"
 
 int check(int a) {
     int first = a % 10;
