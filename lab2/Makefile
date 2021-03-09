@@ -1,4 +1,4 @@
-all: clean compileMain runMain test
+all: clean compileMain test
 
 compileMain: main.c
 	gcc -o main main.c -std=c89 -lm
