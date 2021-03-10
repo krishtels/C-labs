@@ -71,6 +71,7 @@ void FreeMatrix(int** matrix){
     }
     free(matrix);
 }
+
 int main() {
     int i, j;
     int** planets = (int**)malloc(3 * sizeof(int*));
