@@ -169,7 +169,7 @@ int main() {
                 printf("Error! Distance = 0\n");
             }
             else {
-                printf("Power between planet 2G_%d and 2G_%d = %.2f mH\n", planet1, planet2, power);
+                printf("Power between planet 2G_%d and 2G_%d = %.2f nH\n", planet1, planet2, power);
             }
             break;
         }
