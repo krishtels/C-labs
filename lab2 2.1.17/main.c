@@ -62,13 +62,32 @@ float CalculatePower(int planet1, int planet2, int time, int** planets) {
     else {
         return -1;
     }
-    
+}
+
+void FreeMatrix(int** matrix){
+    int i;
+    for (i = 0; i < 3; i++) {
+        free(matrix[i]);
+    }
+    free(matrix);
 }
 int main() {
     int i, j;
     int** planets = (int**)malloc(3 * sizeof(int*));
+    if(planets==NULL){
+        printf("Error: can't allocate memory");
+        return 0;
+    }
+    for (i=0; i < 3; i++){
+        planets[i]=NULL;
+    }
     for (i = 0; i < 3; i++) {
         planets[i] = (int*)malloc(3 * sizeof(int));
+        if (planets[i]==NULL){
+            FreeMatrix(planets);
+            printf("Error: can't allocate memory");
+            return 0;
+        }
     }
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
@@ -183,9 +202,6 @@ int main() {
         }
         }
     }
-    for (i = 0; i < 3; i++) {
-        free(planets[i]);
-    }
-    free(planets);
+    FreeMatrix(planets);
     return 0;
 }
