@@ -16,5 +16,5 @@ jobs:
     - name: compile and test
       run: | 
         for d in */ ; do
-        make -C
+        make -C d
         done
