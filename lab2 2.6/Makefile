@@ -1,7 +1,7 @@
 all: clean compileMain test
 
 compileMain: main.c
-	gcc -o main main.c -std=c89 -lm
+	gcc -o main main.c -std=c89 -lm -Werror
 
 runMain: 
 	./main
