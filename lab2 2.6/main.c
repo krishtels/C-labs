@@ -9,31 +9,31 @@ int Fact(int n){
     return n * Fact(n - 1);
 }
 
-int FactLoop(int fact, int detorminator){
+int FactLoop(int fact, int denominator){
     fact *= (fact-1);
-    detorminator *= fact;
-    return detorminator;
+    denominator *= fact;
+    return denominator;
 }
 
 
-int CountN(double angel, double sinAnswer, double epsilon, int choise){
-    if (angel <= epsilon){
+int CountN(double angle, double sinAnswer, double epsilon, int choise){
+    if (angle <= epsilon){
         return 0;
     }
     int n = 1;
-    double leftAnswer = angel;
+    double leftAnswer = angle;
     int fact = 3;
-    int detorminator = 1;
-    double power = angel;
+    int denominator = 1;
+    double power = angle;
     while (fabs(leftAnswer-sinAnswer) >= epsilon){
-        power *= angel * angel;
+        power *= angle * angle;
         if (choise == 1){
-            detorminator = Fact(fact);
+            denominator = Fact(fact);
         } else {
-            detorminator = FactLoop(fact, detorminator);
+            denominator = FactLoop(fact, denominator);
         }
         fact += 2;
-        double currentAnswer = power / detorminator;
+        double currentAnswer = power / denominator;
         if (n % 2 == 0){
             leftAnswer += currentAnswer;
         } else {
@@ -46,7 +46,7 @@ int CountN(double angel, double sinAnswer, double epsilon, int choise){
 
 double EnterOneDouble(){
     double number;
-    while(scanf("%d",&number)!=1 || number <= 0){
+    while(scanf("%lf",&number)!=1 || number <= 0){
         printf("Incorrect input! Try again\n");
         while (getchar() != '\n') {
         }
@@ -58,10 +58,10 @@ int main(){
     printf("Enter your epsilon\n");
     double epsilon = EnterOneDouble();
     printf("Enter angel (greater than epsilon)\n");
-    double angel = EnterOneDouble();
-    double sinAnswer = sin(angel);
-    int nAnswerLoop = CountN(angel, sinAnswer, epsilon, 0);
-    int nAnswerRecurse = CountN(angel, sinAnswer, epsilon, 1);
+    double angle = EnterOneDouble();
+    double sinAnswer = sin(angle);
+    int nAnswerLoop = CountN(angle, sinAnswer, epsilon, 0);
+    int nAnswerRecurse = CountN(angle, sinAnswer, epsilon, 1);
     printf("Loop result: N = %d\n", nAnswerLoop);
     printf("Recurse result: N = %d\n", nAnswerRecurse);
     system("pause");
